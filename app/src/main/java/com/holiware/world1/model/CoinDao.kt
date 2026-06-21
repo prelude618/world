@@ -13,4 +13,7 @@ interface CoinDao {
 
     @Query("Select * from Coin")
     fun getCoins(): Flow<List<Coin>>
+
+    @Query("Delete from Coin")
+    suspend fun deleteAll()
 }
