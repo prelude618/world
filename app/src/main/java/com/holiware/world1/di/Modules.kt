@@ -1,10 +1,10 @@
 package com.holiware.world1.di
 
 import androidx.room.Room
-import com.holiware.world1.model.CoinApi
-import com.holiware.world1.model.CoinDatabase
-import com.holiware.world1.model.CoinRepository
-import com.holiware.world1.model.CoinRepositoryImpl
+import com.holiware.world1.data.local.CoinDatabase
+import com.holiware.world1.data.remote.CoinApi
+import com.holiware.world1.data.repository.CoinRepositoryImpl
+import com.holiware.world1.domain.repository.CoinRepository
 import com.holiware.world1.viewmodel.CoinViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
@@ -29,7 +29,7 @@ val appModules = module {
             .create(CoinApi::class.java)
     }
 
-    single {
+    single<CoinDatabase> {
         Room.databaseBuilder(
             context = androidContext(),
             klass = CoinDatabase::class.java,
@@ -37,6 +37,9 @@ val appModules = module {
         )
             .fallbackToDestructiveMigration()
             .build()
-            .getDao()
+    }
+
+    single {
+        get<CoinDatabase>().coinDao()
     }
 }

@@ -1,9 +1,11 @@
 package com.holiware.world1.viewmodel
 
-import com.holiware.world1.model.Coin
-import com.holiware.world1.model.CoinRepository
+import com.holiware.world1.domain.model.Coin
+import com.holiware.world1.domain.repository.CoinRepository
 import io.mockk.Runs
 import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
@@ -22,10 +24,10 @@ import org.junit.Test
 class CoinViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
-    private val repository: CoinRepository = mockk(relaxed = true)
+    private val repository: CoinRepository = mockk()
     private lateinit var viewModel: CoinViewModel
 
-    val coins = listOf(
+    private val coins = listOf(
         Coin("1", "BTC", "Bitcoin", "https://google.com", 10.01, 2.01),
         Coin("2", "ETC", "Ethereum Classic", "https://google.com", 1.01, 0.01)
     )
@@ -33,8 +35,8 @@ class CoinViewModelTest {
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
-        coEvery { repository.fetchCoins() } just Runs
-        coEvery { repository.getCoins() } returns flowOf(coins)
+        coEvery { repository.fetchCoins(1) } just Runs
+        every { repository.getCoins() } returns flowOf(coins)
 
         viewModel = CoinViewModel(repository)
     }
@@ -50,5 +52,6 @@ class CoinViewModelTest {
 
         val result = viewModel.coinListState.value
         assertEquals("ETC", result[1].symbol)
+        coVerify(exactly = 1) { repository.fetchCoins(1) }
     }
 }

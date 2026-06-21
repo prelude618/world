@@ -69,9 +69,6 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.moshi)
-    implementation(libs.okhttp.logging.interceptor)
-    implementation(libs.moshi.kotlin)
     implementation(libs.converter.gson)
 
     testImplementation(libs.junit)

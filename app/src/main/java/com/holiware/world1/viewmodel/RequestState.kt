@@ -1,4 +1,4 @@
-package com.holiware.world1.view
+package com.holiware.world1.viewmodel
 
 sealed class RequestState {
     object Idle : RequestState()

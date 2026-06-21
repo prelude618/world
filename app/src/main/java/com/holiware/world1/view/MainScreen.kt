@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -40,8 +39,9 @@ import java.util.Locale
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.holiware.world1.R
-import com.holiware.world1.model.Coin
+import com.holiware.world1.domain.model.Coin
 import com.holiware.world1.viewmodel.CoinViewModel
+import com.holiware.world1.viewmodel.RequestState
 import org.koin.androidx.compose.koinViewModel
 import androidx.compose.ui.res.stringResource
 
