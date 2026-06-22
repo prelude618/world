@@ -7,19 +7,17 @@ import com.holiware.world1.data.repository.CoinRepositoryImpl
 import com.holiware.world1.domain.repository.CoinRepository
 import com.holiware.world1.viewmodel.CoinViewModel
 import org.koin.android.ext.koin.androidContext
-import org.koin.core.module.dsl.viewModel
+import org.koin.core.module.dsl.bind
+import org.koin.core.module.dsl.singleOf
+import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 val appModules = module {
-    viewModel {
-        CoinViewModel(get())
-    }
+    viewModelOf(::CoinViewModel)
 
-    single<CoinRepository> {
-        CoinRepositoryImpl(get(), get())
-    }
+    singleOf(::CoinRepositoryImpl) { bind<CoinRepository>() }
 
     single {
         Retrofit.Builder()
@@ -29,7 +27,7 @@ val appModules = module {
             .create(CoinApi::class.java)
     }
 
-    single<CoinDatabase> {
+    single {
         Room.databaseBuilder(
             context = androidContext(),
             klass = CoinDatabase::class.java,
