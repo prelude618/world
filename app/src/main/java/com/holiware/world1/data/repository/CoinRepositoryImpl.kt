@@ -2,8 +2,7 @@ package com.holiware.world1.data.repository
 
 import com.holiware.world1.data.local.CoinDao
 import com.holiware.world1.data.remote.CoinApi
-import com.holiware.world1.domain.model.Coin
-import com.holiware.world1.domain.repository.CoinRepository
+import com.holiware.world1.data.model.Coin
 import kotlinx.coroutines.flow.Flow
 
 class CoinRepositoryImpl(

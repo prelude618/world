@@ -1,7 +1,6 @@
-package com.holiware.world1.domain.repository
+package com.holiware.world1.data.repository
 
-import com.holiware.world1.domain.model.Coin
-
+import com.holiware.world1.data.model.Coin
 import kotlinx.coroutines.flow.Flow
 
 interface CoinRepository {

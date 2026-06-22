@@ -22,7 +22,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.holiware.world1.domain.model.Coin
+import com.holiware.world1.data.model.Coin
 import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)

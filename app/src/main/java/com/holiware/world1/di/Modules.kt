@@ -4,7 +4,7 @@ import androidx.room.Room
 import com.holiware.world1.data.local.CoinDatabase
 import com.holiware.world1.data.remote.CoinApi
 import com.holiware.world1.data.repository.CoinRepositoryImpl
-import com.holiware.world1.domain.repository.CoinRepository
+import com.holiware.world1.data.repository.CoinRepository
 import com.holiware.world1.viewmodel.CoinViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.bind

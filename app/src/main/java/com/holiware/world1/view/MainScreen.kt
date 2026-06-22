@@ -39,7 +39,7 @@ import java.util.Locale
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.holiware.world1.R
-import com.holiware.world1.domain.model.Coin
+import com.holiware.world1.data.model.Coin
 import com.holiware.world1.viewmodel.CoinViewModel
 import com.holiware.world1.viewmodel.RequestState
 import org.koin.androidx.compose.koinViewModel

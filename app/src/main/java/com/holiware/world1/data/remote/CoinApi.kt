@@ -1,6 +1,6 @@
 package com.holiware.world1.data.remote
 
-import com.holiware.world1.domain.model.Coin
+import com.holiware.world1.data.model.Coin
 import retrofit2.http.GET
 import retrofit2.http.Query
 

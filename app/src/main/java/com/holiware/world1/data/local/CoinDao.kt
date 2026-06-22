@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.holiware.world1.domain.model.Coin
+import com.holiware.world1.data.model.Coin
 import kotlinx.coroutines.flow.Flow
 
 @Dao

@@ -2,8 +2,8 @@ package com.holiware.world1.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.holiware.world1.domain.model.Coin
-import com.holiware.world1.domain.repository.CoinRepository
+import com.holiware.world1.data.model.Coin
+import com.holiware.world1.data.repository.CoinRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow

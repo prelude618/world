@@ -1,4 +1,4 @@
-package com.holiware.world1.domain.model
+package com.holiware.world1.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

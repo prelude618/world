@@ -1,7 +1,7 @@
 package com.holiware.world1.viewmodel
 
-import com.holiware.world1.domain.model.Coin
-import com.holiware.world1.domain.repository.CoinRepository
+import com.holiware.world1.data.model.Coin
+import com.holiware.world1.data.repository.CoinRepository
 import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.coVerify
