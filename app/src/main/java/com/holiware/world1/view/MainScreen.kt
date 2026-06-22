@@ -71,11 +71,13 @@ fun MainScreen(
 
     LaunchedEffect(Unit) {
         viewModel.requestState.collect { state ->
-            if (state is RequestState.Failure && requestState != state) {
+            requestState = state
+            if (state is RequestState.Failure) {
                 Toast.makeText(context, state.message, Toast.LENGTH_SHORT).show()
                 viewModel.resetRequestState()
+            } else if (state is RequestState.Success) {
+                viewModel.resetRequestState()
             }
-            requestState = state
         }
     }
 
