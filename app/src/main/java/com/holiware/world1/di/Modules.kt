@@ -35,9 +35,6 @@ val appModules = module {
         )
             .fallbackToDestructiveMigration()
             .build()
-    }
-
-    single {
-        get<CoinDatabase>().coinDao()
+            .coinDao()
     }
 }

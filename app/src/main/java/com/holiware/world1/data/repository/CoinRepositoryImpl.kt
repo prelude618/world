@@ -10,7 +10,7 @@ class CoinRepositoryImpl(
     private val coinDao: CoinDao,
 ): CoinRepository {
     override suspend fun fetchCoins(page: Int) {
-        val firstSortOrder = ((page - 1) * PAGE_SIZE) + 1
+        val firstSortOrder = (page - 1) * PAGE_SIZE
         val coins = coinApi.fetchCoins(
             perPage = PAGE_SIZE,
             page = page

@@ -114,9 +114,7 @@ fun MainScreen(
                         AsyncImage(
                             model = coin.image,
                             contentDescription = "Coin image",
-                            modifier = Modifier
-                                .width(50.dp)
-                                .height(50.dp),
+                            modifier = Modifier.size(50.dp),
                             contentScale = ContentScale.FillWidth,
                         )
 
