@@ -125,7 +125,7 @@ fun MainScreen(
                         Spacer(modifier = Modifier.weight(1f))
 
                         Text(
-                            text = "$${String.format(Locale.getDefault(), "%.2f", coin.price)}",
+                            text = "${String.format(Locale.getDefault(), "%.2f", coin.price)}",
                             style = MaterialTheme.typography.bodyLarge,
                             fontWeight = FontWeight.Bold
                         )
