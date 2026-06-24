@@ -40,7 +40,8 @@ class CoinViewModel(
     }
 
     fun loadNextPage() {
-        if (_requestState.replayCache.lastOrNull() is RequestState.Loading) return
+        val lastState = _requestState.replayCache.lastOrNull()
+        if (lastState is RequestState.Loading) return
         
         viewModelScope.launch {
             _requestState.emit(RequestState.Loading)
@@ -49,8 +50,12 @@ class CoinViewModel(
                 currentPage++
                 _requestState.emit(RequestState.Success)
             } catch (e: Exception) {
-                e.printStackTrace()
-                _requestState.emit(RequestState.Failure("Server is not responding"))
+                val errorMessage = if (e is retrofit2.HttpException && e.code() == 429) {
+                    "Rate limit reached. Please wait a moment."
+                } else {
+                    "Server is not responding"
+                }
+                _requestState.emit(RequestState.Failure(errorMessage))
             }
         }
     }
